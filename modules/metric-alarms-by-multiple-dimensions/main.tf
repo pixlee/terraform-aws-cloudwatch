@@ -1,3 +1,8 @@
+terraform {
+  # The configuration for this backend will be filled in by Terragrunt
+  backend "s3" {}
+}
+
 resource "aws_cloudwatch_metric_alarm" "this" {
   for_each = var.create_metric_alarm && length(keys(var.dimensions)) > 0 ? var.dimensions : {}
 

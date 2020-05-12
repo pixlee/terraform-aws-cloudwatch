@@ -1,3 +1,8 @@
+terraform {
+  # The configuration for this backend will be filled in by Terragrunt
+  backend "s3" {}
+}
+
 resource "aws_cloudwatch_log_metric_filter" "this" {
   count = var.create_cloudwatch_log_metric_filter ? 1 : 0
 
